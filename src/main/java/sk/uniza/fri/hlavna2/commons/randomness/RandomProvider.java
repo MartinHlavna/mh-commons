@@ -33,7 +33,21 @@ import sk.uniza.fri.hlavna2.commons.conversion.ConversionUtils;
  */
 public class RandomProvider {
 
-    public static Random createRandom() {
+    private final SecureRandom random;
+
+    public RandomProvider() {
+        this.random = new SecureRandom();
+    }
+
+    public Random createSecureRandom() {
+        return new Random(ConversionUtils.bytesToLong(random.generateSeed(Long.BYTES)));
+    }
+
+    public Random createRandom() {
+        return new Random(random.nextLong());
+    }
+
+    public static Random createSimpleRandom() {
         return new Random(ConversionUtils.bytesToLong(new SecureRandom().generateSeed(Long.BYTES)));
     }
 }

@@ -49,19 +49,24 @@ public class RandomUtils {
         return ((random.nextFloat() * (max)));
     }
 
-    public static double nextInt(Random random, int min, int max) {
-        return ((random.nextInt() * (max - min)) + min);
+    public static int nextInt(Random random, int min, int max) {
+        return ((random.nextInt((max - min))) + min);
     }
 
-    public static double nextInt(Random random, int max) {
+    public static int nextInt(Random random, int max) {
         return nextInt(random, 0, max);
     }
 
     public static double nextLong(Random random, long min, long max) {
-        return ((random.nextLong() * (max - min)) + min);
+        return ((random.nextInt(1) * (max - min)) + min);
     }
 
     public static double nextLong(Random random, long max) {
         return nextLong(random, 0, max);
+    }
+
+    public static boolean nextBoolean(Random random, double trueTreshold) {
+        double generatedValue = random.nextDouble();
+        return generatedValue < trueTreshold;
     }
 }
