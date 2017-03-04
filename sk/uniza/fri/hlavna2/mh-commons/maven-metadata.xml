@@ -3,10 +3,10 @@
   <groupId>sk.uniza.fri.hlavna2</groupId>
   <artifactId>mh-commons</artifactId>
   <versioning>
-    <release>1.2.0</release>
+    <release>1.3.0</release>
     <versions>
-      <version>1.2.0</version>
+      <version>1.3.0</version>
     </versions>
-    <lastUpdated>20170226102416</lastUpdated>
+    <lastUpdated>20170304104642</lastUpdated>
   </versioning>
 </metadata>
