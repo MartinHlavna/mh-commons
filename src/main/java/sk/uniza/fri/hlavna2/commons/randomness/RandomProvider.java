@@ -25,7 +25,6 @@ package sk.uniza.fri.hlavna2.commons.randomness;
 
 import java.security.SecureRandom;
 import java.util.Random;
-import sk.uniza.fri.hlavna2.commons.conversion.ConversionUtils;
 
 /**
  *
@@ -33,21 +32,17 @@ import sk.uniza.fri.hlavna2.commons.conversion.ConversionUtils;
  */
 public class RandomProvider {
 
-    private final SecureRandom random;
+    private final Random random;
 
     public RandomProvider() {
         this.random = new SecureRandom();
     }
 
-    public Random createSecureRandom() {
-        return new Random(ConversionUtils.bytesToLong(random.generateSeed(Long.BYTES)));
+    public RandomProvider(long seed) {
+        this.random = new Random(seed);
     }
 
     public Random createRandom() {
         return new Random(random.nextLong());
-    }
-
-    public static Random createSimpleRandom() {
-        return new Random(ConversionUtils.bytesToLong(new SecureRandom().generateSeed(Long.BYTES)));
     }
 }
