@@ -27,8 +27,12 @@ import java.security.SecureRandom;
 import java.util.Random;
 
 /**
+ * Provides random generators initialized with random seed
  *
- * @author Martin Hlavňa {@literal <myemail@gmail.com>}
+ * During contruction of object, one random is created either with system time or given long seed. On call to
+ * createRandom, new long seed is generated and generator is constructed with this seed
+ *
+ * @author Martin Hlavňa {@literal <mato.hlavna@gmail.com>}
  */
 public class RandomProvider {
 
@@ -42,6 +46,11 @@ public class RandomProvider {
         this.random = new Random(seed);
     }
 
+    /**
+     * Creates new Random generator initialized with random seed
+     *
+     * @return New instance of Random class
+     */
     public Random createRandom() {
         return new Random(random.nextLong());
     }

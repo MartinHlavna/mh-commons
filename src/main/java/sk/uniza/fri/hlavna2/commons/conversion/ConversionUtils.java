@@ -26,8 +26,9 @@ package sk.uniza.fri.hlavna2.commons.conversion;
 import java.nio.ByteBuffer;
 
 /**
+ * Utilitie for conversion between various format
  *
- * @author Martin Hlavňa {@literal <myemail@gmail.com>}
+ * @author Martin Hlavňa {@literal <mato.hlavna@gmail.com>}
  */
 public class ConversionUtils {
 
