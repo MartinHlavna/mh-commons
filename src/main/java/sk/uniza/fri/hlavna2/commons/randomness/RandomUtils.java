@@ -27,7 +27,7 @@ import java.util.Random;
 
 /**
  *
- * @author Martin Hlavňa <mato.hlavna@gmail.com>
+ * @author Martin Hlavňa {@literal <myemail@gmail.com>}
  */
 public class RandomUtils {
 

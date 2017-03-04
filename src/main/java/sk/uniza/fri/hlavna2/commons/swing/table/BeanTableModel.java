@@ -292,6 +292,7 @@ public class BeanTableModel<T> extends RowTableModel<T> {
      * This method must be invoked before the model is added to the table.
      *
      * @param column the column whose value is to be queried
+     * @param name Name of the collumn
      * @exception IndexOutOfBoundsException if an invalid column was given
      */
     public void setColumnName(int column, String name) {
