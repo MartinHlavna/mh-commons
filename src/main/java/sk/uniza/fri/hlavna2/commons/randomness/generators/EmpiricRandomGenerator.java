@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package sk.uniza.fri.hlavna2.commons.randomness;
+package sk.uniza.fri.hlavna2.commons.randomness.generators;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,7 +36,7 @@ import sk.uniza.fri.hlavna2.commons.randomness.exception.IncorrectProbabilityExc
  * @author Martin Hlavňa {@literal <mato.hlavna@gmail.com>}
  * @param <T> Type of result
  */
-public class EmpiricRandomGenerator<T> {
+public class EmpiricRandomGenerator<T> implements RandomGenerator<T> {
 
     private final Random random;
     private final List<EmpiricRandomValue<T>> values;
@@ -66,6 +66,7 @@ public class EmpiricRandomGenerator<T> {
         return tmpList;
     }
 
+    @Override
     public T next() {
         double randomNumber = random.nextDouble();
         double probabilitySum = 0;

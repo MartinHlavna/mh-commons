@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package sk.uniza.fri.hlavna2.commons.randomness;
+package sk.uniza.fri.hlavna2.commons.randomness.generators;
 
 import sk.uniza.fri.hlavna2.commons.randomness.exception.IncorrectProbabilityException;
 

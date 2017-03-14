@@ -23,6 +23,8 @@
  */
 package sk.uniza.fri.hlavna2.commons.randomness;
 
+import sk.uniza.fri.hlavna2.commons.randomness.generators.EmpiricRandomGenerator;
+import sk.uniza.fri.hlavna2.commons.randomness.generators.EmpiricRandomValue;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
