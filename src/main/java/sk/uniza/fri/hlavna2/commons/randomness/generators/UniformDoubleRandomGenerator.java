@@ -26,6 +26,11 @@ package sk.uniza.fri.hlavna2.commons.randomness.generators;
 import java.util.Random;
 import sk.uniza.fri.hlavna2.commons.randomness.RandomUtils;
 
+/**
+ * Uniform double generator
+ *
+ * @author Martin Hlavňa {@literal <mato.hlavna@gmail.com>}
+ */
 public class UniformDoubleRandomGenerator extends UniformRandomGenerator<Double> {
 
     public UniformDoubleRandomGenerator(Random random, Double min, Double max) {

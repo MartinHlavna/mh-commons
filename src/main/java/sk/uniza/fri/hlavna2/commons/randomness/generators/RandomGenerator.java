@@ -24,9 +24,11 @@
 package sk.uniza.fri.hlavna2.commons.randomness.generators;
 
 /**
+ * Interface for common RandomGenerator. These generator should not allow changing of the type of interval of the
+ * generation
  *
- * @author Martin Hlavňa <mato.hlavna@gmail.com>
- * @param <T>
+ * @author Martin Hlavňa {@literal <mato.hlavna@gmail.com>}
+ * @param <T> Type of the generated value
  */
 public interface RandomGenerator<T> {
 

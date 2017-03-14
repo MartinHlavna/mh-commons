@@ -26,9 +26,10 @@ package sk.uniza.fri.hlavna2.commons.randomness.generators;
 import java.util.Random;
 
 /**
+ * Basic abstraction for Unform random generator which works on initialized underlaying java Random.
  *
- * @author Martin Hlavňa <mato.hlavna@gmail.com>
- * @param <T>
+ * @author Martin Hlavňa {@literal <mato.hlavna@gmail.com>}
+ * @param <T> Type of the generated value
  */
 public abstract class UniformRandomGenerator<T> implements RandomGenerator<T> {
 
@@ -36,6 +37,13 @@ public abstract class UniformRandomGenerator<T> implements RandomGenerator<T> {
     protected T min;
     protected T max;
 
+    /**
+     * Initializes generator.
+     *
+     * @param random Source of the random stream
+     * @param min Minimal value to generate
+     * @param max Maximal value to generate
+     */
     public UniformRandomGenerator(Random random, T min, T max) {
         this.random = random;
         this.min = min;

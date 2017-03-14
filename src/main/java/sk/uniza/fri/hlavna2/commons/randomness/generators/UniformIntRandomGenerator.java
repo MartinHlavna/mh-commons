@@ -26,6 +26,11 @@ package sk.uniza.fri.hlavna2.commons.randomness.generators;
 import java.util.Random;
 import sk.uniza.fri.hlavna2.commons.randomness.RandomUtils;
 
+/**
+ * Uniform integer generator
+ *
+ * @author Martin Hlavňa {@literal <mato.hlavna@gmail.com>}
+ */
 public class UniformIntRandomGenerator extends UniformRandomGenerator<Integer> {
 
     public UniformIntRandomGenerator(Random random, Integer min, Integer max) {
