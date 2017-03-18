@@ -33,7 +33,6 @@ import java.util.Random;
  */
 public abstract class UniformRandomGenerator<T> extends AbstractRandomGenerator<T> {
 
-    protected Random random;
     protected T min;
     protected T max;
 
