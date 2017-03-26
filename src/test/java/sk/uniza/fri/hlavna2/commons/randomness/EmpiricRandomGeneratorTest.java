@@ -115,9 +115,9 @@ public class EmpiricRandomGeneratorTest {
 
     private void probabilityTestIteration(final long seed) {
         EmpiricRandomGenerator<Integer> empiricRandomGenerator = new EmpiricRandomGenerator<>(new Random(seed),
-                new EmpiricRandomValue<>(50, ONE),
-                new EmpiricRandomValue<>(10, TWO),
-                new EmpiricRandomValue<>(40, THREE)
+                new EmpiricRandomValue<>(0.5, ONE),
+                new EmpiricRandomValue<>(0.1, TWO),
+                new EmpiricRandomValue<>(0.4, THREE)
         );
         Map<Integer, Integer> results = new HashMap<>(NUMBER_OF_ITERATIONS);
         generateValues(results, empiricRandomGenerator);
@@ -128,37 +128,6 @@ public class EmpiricRandomGeneratorTest {
         Assert.assertTrue(countOfOTwo >= (NUMBER_OF_ITERATIONS * 0.1 - NUMBER_OF_ITERATIONS * DELTA) && countOfOTwo <= (NUMBER_OF_ITERATIONS * 0.1 + NUMBER_OF_ITERATIONS * DELTA));
         Assert.assertTrue(countOfThree >= (NUMBER_OF_ITERATIONS * 0.4 - NUMBER_OF_ITERATIONS * DELTA) && countOfThree <= (NUMBER_OF_ITERATIONS * 0.4 + NUMBER_OF_ITERATIONS * DELTA));
 
-        empiricRandomGenerator = new EmpiricRandomGenerator<>(new Random(seed),
-                new EmpiricRandomValue<>(0.5, ONE),
-                new EmpiricRandomValue<>(0.1, TWO),
-                new EmpiricRandomValue<>(0.4, THREE)
-        );
-
-        results = new HashMap<>(NUMBER_OF_ITERATIONS);
-        generateValues(results, empiricRandomGenerator);
-        countOfOne = results.get(ONE);
-        countOfOTwo = results.get(TWO);
-        countOfThree = results.get(THREE);
-
-        Assert.assertTrue(countOfOne >= (NUMBER_OF_ITERATIONS * 0.5 - NUMBER_OF_ITERATIONS * DELTA) && countOfOne <= (NUMBER_OF_ITERATIONS * 0.5 + NUMBER_OF_ITERATIONS * DELTA));
-        Assert.assertTrue(countOfOTwo >= (NUMBER_OF_ITERATIONS * 0.1 - NUMBER_OF_ITERATIONS * DELTA) && countOfOTwo <= (NUMBER_OF_ITERATIONS * 0.1 + NUMBER_OF_ITERATIONS * DELTA));
-        Assert.assertTrue(countOfThree >= (NUMBER_OF_ITERATIONS * 0.4 - NUMBER_OF_ITERATIONS * DELTA) && countOfThree <= (NUMBER_OF_ITERATIONS * 0.4 + NUMBER_OF_ITERATIONS * DELTA));
-
-        empiricRandomGenerator = new EmpiricRandomGenerator<>(new Random(seed),
-                new EmpiricRandomValue<>(50, ONE),
-                new EmpiricRandomValue<>(0.1, TWO),
-                new EmpiricRandomValue<>(40, THREE)
-        );
-
-        results = new HashMap<>(NUMBER_OF_ITERATIONS);
-        generateValues(results, empiricRandomGenerator);
-        countOfOne = results.get(ONE);
-        countOfOTwo = results.get(TWO);
-        countOfThree = results.get(THREE);
-
-        Assert.assertTrue(countOfOne >= (NUMBER_OF_ITERATIONS * 0.5 - NUMBER_OF_ITERATIONS * DELTA) && countOfOne <= (NUMBER_OF_ITERATIONS * 0.5 + NUMBER_OF_ITERATIONS * DELTA));
-        Assert.assertTrue(countOfOTwo >= (NUMBER_OF_ITERATIONS * 0.1 - NUMBER_OF_ITERATIONS * DELTA) && countOfOTwo <= (NUMBER_OF_ITERATIONS * 0.1 + NUMBER_OF_ITERATIONS * DELTA));
-        Assert.assertTrue(countOfThree >= (NUMBER_OF_ITERATIONS * 0.4 - NUMBER_OF_ITERATIONS * DELTA) && countOfThree <= (NUMBER_OF_ITERATIONS * 0.4 + NUMBER_OF_ITERATIONS * DELTA));
     }
 
     private void generateValues(Map<Integer, Integer> results, EmpiricRandomGenerator<Integer> empiricRandomGenerator) {
