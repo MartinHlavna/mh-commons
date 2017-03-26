@@ -46,20 +46,11 @@ public class EmpiricRandomGeneratorTest {
 
     @Test
     public void testCorrectProbability() {
-        new EmpiricRandomGenerator<>(new Random(12345),
-                new EmpiricRandomValue<>(50, ONE),
-                new EmpiricRandomValue<>(10, TWO),
-                new EmpiricRandomValue<>(40, THREE)
-        );
+
         new EmpiricRandomGenerator<>(new Random(12345),
                 new EmpiricRandomValue<>(0.5, ONE),
                 new EmpiricRandomValue<>(0.1, TWO),
                 new EmpiricRandomValue<>(0.4, THREE)
-        );
-        new EmpiricRandomGenerator<>(new Random(12345),
-                new EmpiricRandomValue<>(50, ONE),
-                new EmpiricRandomValue<>(0.1, TWO),
-                new EmpiricRandomValue<>(40, THREE)
         );
     }
 

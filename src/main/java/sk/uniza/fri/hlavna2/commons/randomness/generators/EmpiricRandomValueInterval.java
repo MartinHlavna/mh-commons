@@ -23,48 +23,31 @@
  */
 package sk.uniza.fri.hlavna2.commons.randomness.generators;
 
-import sk.uniza.fri.hlavna2.commons.randomness.exception.IncorrectProbabilityException;
-
 /**
- * Wrapper for Value of EmpiricRandomGenerator
+ * Value of the EmpiricRandomGenerator which returns values from suplied generator generator
  *
  * @author Martin Hlavňa {@literal <mato.hlavna@gmail.com>}
- * @param <T> Type of the value
- * @see EmpiricRandomGenerator
+ * @param <T> Type of the result
  */
-public class EmpiricRandomValue<T> implements Comparable {
+public class EmpiricRandomValueInterval<T> extends EmpiricRandomValue<T> {
 
-    private double probability;
-    private T value;
+    private final RandomGenerator<T> generator;
 
     /**
-     * Construct new value using war probability value
+     * Costructs value with random generator which is source of the values and probalitity in which these values will be
+     * returned if this value is part of the generator
      *
-     * @param probability double value from (0,1) interval
-     * @param value Value this object holds
+     * @param generator Source of values
+     * @param probability Probability of this interval
      */
-    public EmpiricRandomValue(double probability, T value) {
-        if (probability >= 1.0 || probability <= 0.0) {
-            throw new IncorrectProbabilityException();
-        }
-        this.probability = (int) Math.floor(probability * 100);
-        this.value = value;
-    }
-
-    public T getValue() {
-        return value;
-    }
-
-    public double getProbability() {
-        return probability / 100.0;
+    public EmpiricRandomValueInterval(RandomGenerator<T> generator, double probability) {
+        super(probability, null);
+        this.generator = generator;
     }
 
     @Override
-    public int compareTo(Object o) {
-        if (o instanceof EmpiricRandomValue) {
-            return Double.compare(((EmpiricRandomValue) o).probability, this.probability);
-        }
-        return -1;
+    public T getValue() {
+        return generator.next();
     }
 
 }

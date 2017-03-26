@@ -54,11 +54,11 @@ public class EmpiricRandomGenerator<T> implements RandomGenerator<T> {
     }
 
     private List<EmpiricRandomValue<T>> init(List<EmpiricRandomValue<T>> values) throws IncorrectProbabilityException {
-        int prob = 0;
+        double prob = 0;
         for (EmpiricRandomValue<T> value : values) {
-            prob += value.getIntProbability();
+            prob += value.getProbability();
         }
-        if (prob != 100) {
+        if (Double.compare(prob, 1.0) != 0) {
             throw new IncorrectProbabilityException();
         }
         ArrayList<EmpiricRandomValue<T>> tmpList = new ArrayList<>(values);
