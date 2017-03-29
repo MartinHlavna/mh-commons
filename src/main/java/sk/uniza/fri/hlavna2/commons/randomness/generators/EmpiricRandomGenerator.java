@@ -28,6 +28,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import sk.uniza.fri.hlavna2.commons.number.NumberUtils;
 import sk.uniza.fri.hlavna2.commons.randomness.exception.IncorrectProbabilityException;
 
 /**
@@ -58,7 +59,7 @@ public class EmpiricRandomGenerator<T> implements RandomGenerator<T> {
         for (EmpiricRandomValue<T> value : values) {
             prob += value.getProbability();
         }
-        if (Double.compare(prob, 1.0) != 0) {
+        if (!NumberUtils.doubleEquals(prob, 1.0, 0.001)) {
             throw new IncorrectProbabilityException();
         }
         ArrayList<EmpiricRandomValue<T>> tmpList = new ArrayList<>(values);
@@ -80,3 +81,4 @@ public class EmpiricRandomGenerator<T> implements RandomGenerator<T> {
     }
 
 }
+//34.606625

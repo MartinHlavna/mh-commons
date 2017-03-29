@@ -21,25 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package sk.uniza.fri.hlavna2.commons.randomness.generators.uniform;
-
-import java.util.Random;
-import sk.uniza.fri.hlavna2.commons.randomness.RandomUtils;
+package sk.uniza.fri.hlavna2.commons.number;
 
 /**
- * Uniform double generator
  *
  * @author Martin Hlavňa {@literal <mato.hlavna@gmail.com>}
  */
-public class UniformDoubleRandomGenerator extends UniformRandomGenerator<Double> {
+public class NumberUtils {
 
-    public UniformDoubleRandomGenerator(Random random, Double min, Double max) {
-        super(random, min, max);
+    public static boolean doubleEquals(double a, double b, double delta) {
+        return Math.abs(a - b) <= delta;
     }
-
-    @Override
-    public Double next() {
-        return RandomUtils.nextDouble(random, min, max);
-    }
-
 }
