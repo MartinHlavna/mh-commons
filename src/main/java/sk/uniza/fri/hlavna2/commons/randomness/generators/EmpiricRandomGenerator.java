@@ -40,7 +40,7 @@ import sk.uniza.fri.hlavna2.commons.randomness.exception.IncorrectProbabilityExc
 public class EmpiricRandomGenerator<T> implements RandomGenerator<T> {
 
     private final Random random;
-    private final List<EmpiricRandomValue<T>> values;
+    protected List<EmpiricRandomValue<T>> values;
 
     public EmpiricRandomGenerator(Random random, List<EmpiricRandomValue<T>> values) {
         this.random = random;
@@ -55,6 +55,10 @@ public class EmpiricRandomGenerator<T> implements RandomGenerator<T> {
     }
 
     private List<EmpiricRandomValue<T>> init(List<EmpiricRandomValue<T>> values) throws IncorrectProbabilityException {
+        return prepareValues(values);
+    }
+
+    protected List<EmpiricRandomValue<T>> prepareValues(List<EmpiricRandomValue<T>> values) throws IncorrectProbabilityException {
         double prob = 0;
         for (EmpiricRandomValue<T> value : values) {
             prob += value.getProbability();
@@ -81,4 +85,3 @@ public class EmpiricRandomGenerator<T> implements RandomGenerator<T> {
     }
 
 }
-//34.606625

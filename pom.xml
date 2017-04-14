@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>sk.uniza.fri.hlavna2</groupId>
     <artifactId>mh-commons</artifactId>
-    <version>1.9.0</version>
+    <version>1.10.0</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,7 +19,7 @@
             <url>file://${project.build.directory}/mvn-repo</url>
         </repository>
     </distributionManagement>
- 
+
     <build>
         <plugins>
             <plugin>
@@ -68,8 +68,8 @@
                     <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
                     <!-- remote branch name -->
                     <branch>refs/heads/mvn-repo</branch>
-                    <!-- If you remove this then the old artifact will be removed and new 
-one will replace. But with the merge tag you can just release by changing 
+                    <!-- If you remove this then the old artifact will be removed and new
+one will replace. But with the merge tag you can just release by changing
                     the version -->
                     <merge>true</merge>
                     <includes>
@@ -105,5 +105,5 @@ one will replace. But with the merge tag you can just release by changing
             <scope>test</scope>
         </dependency>
     </dependencies>
-    
+
 </project>
