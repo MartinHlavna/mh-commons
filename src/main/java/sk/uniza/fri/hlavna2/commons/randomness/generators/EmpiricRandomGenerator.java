@@ -42,7 +42,7 @@ public class EmpiricRandomGenerator<T> implements RandomGenerator<T> {
     private final Random random;
     protected List<EmpiricRandomValue<T>> values;
 
-    public EmpiricRandomGenerator(Random random, List<EmpiricRandomValue<T>> values) {
+    public EmpiricRandomGenerator(Random random, List<? extends EmpiricRandomValue<T>> values) {
         this.random = random;
         List<EmpiricRandomValue<T>> tmpList = init(values);
         this.values = Collections.unmodifiableList(tmpList);
@@ -54,11 +54,11 @@ public class EmpiricRandomGenerator<T> implements RandomGenerator<T> {
         this.values = Collections.unmodifiableList(tmpList);
     }
 
-    private List<EmpiricRandomValue<T>> init(List<EmpiricRandomValue<T>> values) throws IncorrectProbabilityException {
+    private List<EmpiricRandomValue<T>> init(List<? extends EmpiricRandomValue<T>> values) throws IncorrectProbabilityException {
         return prepareValues(values);
     }
 
-    protected List<EmpiricRandomValue<T>> prepareValues(List<EmpiricRandomValue<T>> values) throws IncorrectProbabilityException {
+    protected List<EmpiricRandomValue<T>> prepareValues(List<? extends EmpiricRandomValue<T>> values) throws IncorrectProbabilityException {
         double prob = 0;
         for (EmpiricRandomValue<T> value : values) {
             prob += value.getProbability();

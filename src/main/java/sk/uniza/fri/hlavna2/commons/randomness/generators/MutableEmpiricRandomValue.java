@@ -23,39 +23,13 @@
  */
 package sk.uniza.fri.hlavna2.commons.randomness.generators;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+public class MutableEmpiricRandomValue<T> extends EmpiricRandomValue<T> {
 
-public class MutableEmpiricRandomGenerator<T> extends EmpiricRandomGenerator<T> {
-
-    public MutableEmpiricRandomGenerator(Random random, List<MutableEmpiricRandomValue<T>> values) {
-        super(random, values);
+    public MutableEmpiricRandomValue(double probability, T value) {
+        super(probability, value);
     }
 
-    public MutableEmpiricRandomGenerator(Random random, MutableEmpiricRandomValue<T>... values) {
-        super(random, values);
+    public void setProbability(double probability) {
+        this.probability = probability;
     }
-
-    /**
-     * Reintiliaze generator with new values
-     *
-     * @param values New set of values
-     */
-    public void reinitValues(List<MutableEmpiricRandomValue<T>> values) {
-        List<EmpiricRandomValue<T>> tmpList = prepareValues(values);
-        this.values = Collections.unmodifiableList(tmpList);
-    }
-
-    /**
-     * Reintiliaze generator with new values
-     *
-     * @param values New set of values
-     */
-    public void reinitValues(MutableEmpiricRandomValue<T>... values) {
-        List<EmpiricRandomValue<T>> tmpList = prepareValues(Arrays.asList(values));
-        this.values = Collections.unmodifiableList(tmpList);
-    }
-
 }

@@ -34,7 +34,7 @@ import sk.uniza.fri.hlavna2.commons.randomness.exception.IncorrectProbabilityExc
  */
 public class EmpiricRandomValue<T> implements Comparable {
 
-    private double probability;
+    protected double probability;
     private T value;
 
     /**
