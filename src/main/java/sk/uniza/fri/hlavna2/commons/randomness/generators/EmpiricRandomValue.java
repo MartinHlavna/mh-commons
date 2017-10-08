@@ -44,10 +44,10 @@ public class EmpiricRandomValue<T> implements Comparable {
      * @param value Value this object holds
      */
     public EmpiricRandomValue(double probability, T value) {
-        if (probability >= 1.0 || probability <= 0.0) {
+        if (probability > 1.0 || probability <= 0.0) {
             throw new IncorrectProbabilityException();
         }
-        this.probability = (int) Math.floor(probability * 100);
+        this.probability = probability;
         this.value = value;
     }
 
@@ -56,7 +56,7 @@ public class EmpiricRandomValue<T> implements Comparable {
     }
 
     public double getProbability() {
-        return probability / 100.0;
+        return probability;
     }
 
     @Override
