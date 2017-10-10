@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2017 Martin Hlav≈àa <mato.hlavna@gmail.com>.
+ * Copyright 2017 Martin Hlav≈?a <mato.hlavna@gmail.com>.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +28,7 @@ import sk.uniza.fri.hlavna2.commons.randomness.exception.IncorrectProbabilityExc
 /**
  * Wrapper for Value of EmpiricRandomGenerator
  *
- * @author Martin Hlav≈àa {@literal <mato.hlavna@gmail.com>}
+ * @author Martin Hlav≈?a {@literal <mato.hlavna@gmail.com>}
  * @param <T> Type of the value
  * @see EmpiricRandomGenerator
  */
@@ -44,7 +44,7 @@ public class EmpiricRandomValue<T> implements Comparable {
      * @param value Value this object holds
      */
     public EmpiricRandomValue(double probability, T value) {
-        if (probability > 1.0 || probability <= 0.0) {
+        if (probability > 1.0 || probability < 0.0) {
             throw new IncorrectProbabilityException();
         }
         this.probability = probability;
